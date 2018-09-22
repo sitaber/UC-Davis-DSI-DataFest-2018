@@ -27,10 +27,7 @@ This introduces an extra layer to the challenge, since a solution that works for
 will not be readily applicable to the whole corpus of catalog images.
 
 The challenge was open-ended, and presented an opportunity for people of all skill levels to gain valuable experience with a data 
-science project and to learn about [optical character recognition (OCR)](https://en.wikipedia.org/wiki/Optical_character_recognition). Though the correct extraction of the price information (and other descriptive information 
-such as the name of a wine, its color etc) was the primary goal, there were many subtasks that could be tackled to streamline the 
-process and support various steps in the pipeline of data extraction. This included, but was not limited to, creating truth-tables, 
-analyzing the images for patterns, testing and fine tuning OCR engines, and exploring other extraction idea/methods
+science project and to learn about [optical character recognition (OCR)](https://en.wikipedia.org/wiki/Optical_character_recognition). Though the correct extraction of the price information was the primary goal, there were many subtasks that could be tackled to streamline the process and support various steps in the pipeline of data extraction. This included, but was not limited to, creating truth-tables, analyzing the images for patterns, testing and fine tuning OCR engines, and exploring other extraction idea/methods
 
 ### Team
 **ZeroInfinity** 
