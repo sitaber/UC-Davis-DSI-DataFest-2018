@@ -7,13 +7,20 @@ structured data that can be utilized by interested parties such as researchers a
 The UC Davis Library has over 200 scanned Sherry Lehmann catalogs spanning multiple years: 1938, 1941, and 1947 to 1988. This 
 library collection totals to over 4000 pages, and is part of an ongoing Data Science project at the [UC Davis Libray](https://www.library.ucdavis.edu/).
 
-The layout,fonts and coloring of the catalog pages varies, sometime widely, between catalogs and even within catalogs. 
-(show some sample pages). 
+The layout, fonts and coloring of the catalog pages varies, sometime widely, between catalogs and even within catalogs. 
+##### Some examples
+
+<img src="https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/blob/main-branch-edit/images/UCD_Lehmann_0006.jpg" width="100" height="150" /> | 
+<img src="https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/blob/main-branch-edit/images/UCD_Lehmann_0125.jpg" width="100" height="150" /> |
+<img src="https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/blob/main-branch-edit/images/UCD_Lehmann_0531.jpg" width="100" height="150" /> |
+<img src="https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/blob/main-branch-edit/images/UCD_Lehmann_1636.jpg" width="100" height="150" /> |
+
+
 This introduces an extra layer to the challenge, since a solution that works for a sub-set of pages that are similar 
 will not be readily applicable to the whole corpus of catalog images.
 
 The challenge was open-ended, and presented an opportunity for people of all skill levels to gain valuable experience with a data 
-science project and to learn about [optical character recognition (OCR)](https://en.wikipedia.org/wiki/Optical_character_recognition). Though the correct extraction of the price information (*and other descriptive information 
-such as the name of a wine, its color etc*) was the primary goal, there were many subtasks that could be tackled to streamline the 
+science project and to learn about [optical character recognition (OCR)](https://en.wikipedia.org/wiki/Optical_character_recognition). Though the correct extraction of the price information (and other descriptive information 
+such as the name of a wine, its color etc) was the primary goal, there were many subtasks that could be tackled to streamline the 
 process and support various steps in the pipeline of data extraction. This included, but was not limited to, creating truth-tables, 
 analyzing the images for patterns, testing and fine tuning OCR engines, and exploring other extraction idea/methods
