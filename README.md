@@ -7,7 +7,7 @@ structured data that can be utilized by interested parties such as researchers a
 The UC Davis Library has over 200 scanned Sherry Lehmann catalogs spanning multiple years: 1938, 1941, and 1947 to 1988. This 
 library collection totals to over 4000 pages, and is part of an ongoing Data Science project at the [UC Davis Libray](https://www.library.ucdavis.edu/).
 
-The layout and fonts of the catalog pages varies, sometime widely, between catalogs and even within catalogs. 
+The layout,fonts and coloring of the catalog pages varies, sometime widely, between catalogs and even within catalogs. 
 (show some sample pages). 
 This introduces an extra layer to the challenge, since a solution that works for a sub-set of pages that are similar 
 will not be readily applicable to the whole corpus of catalog images.
