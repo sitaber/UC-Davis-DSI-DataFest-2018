@@ -63,10 +63,7 @@ Pre-processing can greatly enhace Tesseracts ability to recognize text from the 
 
 To illustrate to effectiveness of training Tesseract to recognize the text in the catalogs here are the results of training Tesseract on a small set of training data  
 
-![](images/resutls/Results1.png)
-![](images/results/Results2.png)
-![](images/results/Results3.png)
-![](images/results/Results4.png)
+
 
 
 
