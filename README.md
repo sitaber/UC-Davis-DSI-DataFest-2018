@@ -61,10 +61,11 @@ Pre-processing can greatly enhace Tesseracts ability to recognize text from the 
 
 ## Some Results
 
-To illustrate to effectiveness of training Tesseract to recognize the text in the catalogs here are the results of training Tesseract on a small set of training data  
+To illustrate to effectiveness of training Tesseract to recognize the text in the catalogs [here are some results of training Tesseract on a small set of training data.](https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/wiki/Results)
 
+![](images/results/Results1.png)
 
-
+The training was done with a small set of 10 images. The reuslts are vary promising for such a small training set. THe recognition of the digits is clearly improved for this style of font in the catalog, and the ``` ...``` also have improved recognition.
 
 
 
