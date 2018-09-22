@@ -4,6 +4,7 @@
 * [Introduction](#introduction)
   * [Background](#background)
   * [Team](#team)
+  * [This Repository](#this-repository)
 * [Approach](#approach)
 * [How It Works](#how-it-works)
 * [Prerequisites](#prerequisites)
@@ -11,6 +12,8 @@
 # Introduction
 ### Background
 DSI DataFest 2018 was held September 18-21, 2018 at the [UC Davis Data Science Initiative](http://dsi.ucdavis.edu/). 
+
+
 **The challenge**: To find/test ways to correctly extract wine and spirit price information from scanned [Sherry Lehmann](https://www.sherry-lehmann.com/about-sherry-lehmann-wine-and-spirits) catalogs and turn the extracted information into usable 
 structured data that can be utilized by interested parties such as researchers and wine historians. 
 
@@ -41,8 +44,8 @@ analyzing the images for patterns, testing and fine tuning OCR engines, and expl
 * Train Tesseract with a small sample of fonts from the images and compare to benchmark to see if there is an improvement
 * Parsing Tesseract results with regular expression to extract targed information
 
-
-
+#### This Repository
+Outlines the process of training Tesseract. Includes why this method was chosen, how it was accomplished, the results and issues faced in the attempt to train Tesseract.
 
 # Approach 
 
