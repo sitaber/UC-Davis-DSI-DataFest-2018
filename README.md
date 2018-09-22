@@ -4,8 +4,7 @@
 * [Introduction](#introduction)
   * [Background](#background)
   * [Team](#team)
-  * [This Repository](#this-repository)
-* [Approach](#approach)
+* [Why Train Tesseract?](#why-train-tesseract)
 * [How It Works](#how-it-works)
 * [Prerequisites](#prerequisites)
 
@@ -41,10 +40,33 @@ science project and to learn about [optical character recognition (OCR)](https:/
 * Train Tesseract with a small sample of fonts from the images and compare to benchmark to see if there is an improvement
 * Parsing Tesseract results with regular expression to extract targed information
 
-#### This Repository
+**This Repository**
+
 Outlines the process of training Tesseract. Includes why this method was chosen, how it was accomplished, the results and issues faced in the attempt to train Tesseract.
 
-# Approach 
+# Why Train Tesseract?
+A conceptual approach to extracting data from the images is as follows
+
+```
+data collection => pre-processing => character recognition => formatting into structured data
+```
+
+The data collection was already done for this challenge, so the problem reduces to
+
+```
+ pre-processing => character recognition => formatting into structured data
+```
+
+Pre-processing can greatly enhace Tesseracts ability to recognize text from the images, but due to the variety of fonts and layouts of the catalogs, the "out of the box" languages for Tesseract fail to identify many alpha characters and digits accuratley. This inhibits the ability to create structed data and is why this approach was chossen.
+
+## Some Results
+
+To illustrate to effectiveness of training Tesseract to recognize the text in the catalogs here are the results of training Tesseract on a small set of training data  
+
+
+
+
+
 
 # How it works
 # Prerequisites
