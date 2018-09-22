@@ -1,5 +1,13 @@
 # UC Davis DSI DataFest 2018
 
+##### Table of Contents 
+* [Introduction](#introduction)
+* [Team](#team)
+* [Approach](#approach)
+* [How It Works](#how-it-works)
+* [Prerequisites](#prerequisites)
+
+# Introduction
 DSI DataFest 2018 was held September 18-21, 2018 at the [UC Davis Data Science Initiative](http://dsi.ucdavis.edu/). 
 **The challenge**: To find/test ways to correctly extract wine and spirit price information from scanned [Sherry Lehmann](https://www.sherry-lehmann.com/about-sherry-lehmann-wine-and-spirits) catalogs and turn the extracted information into usable 
 structured data that can be utilized by interested parties such as researchers and wine historians. 
@@ -24,3 +32,14 @@ science project and to learn about [optical character recognition (OCR)](https:/
 such as the name of a wine, its color etc) was the primary goal, there were many subtasks that could be tackled to streamline the 
 process and support various steps in the pipeline of data extraction. This included, but was not limited to, creating truth-tables, 
 analyzing the images for patterns, testing and fine tuning OCR engines, and exploring other extraction idea/methods
+
+# Team
+
+
+
+
+
+# Approach 
+
+# Hpw it works
+# Prerequisites
