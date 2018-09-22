@@ -2,12 +2,14 @@
 
 ##### Table of Contents 
 * [Introduction](#introduction)
-* [Team](#team)
+  * [Background](#background)
+  * [Team](#team)
 * [Approach](#approach)
 * [How It Works](#how-it-works)
 * [Prerequisites](#prerequisites)
 
 # Introduction
+### Background
 DSI DataFest 2018 was held September 18-21, 2018 at the [UC Davis Data Science Initiative](http://dsi.ucdavis.edu/). 
 **The challenge**: To find/test ways to correctly extract wine and spirit price information from scanned [Sherry Lehmann](https://www.sherry-lehmann.com/about-sherry-lehmann-wine-and-spirits) catalogs and turn the extracted information into usable 
 structured data that can be utilized by interested parties such as researchers and wine historians. 
@@ -27,13 +29,17 @@ such as the name of a wine, its color etc) was the primary goal, there were many
 process and support various steps in the pipeline of data extraction. This included, but was not limited to, creating truth-tables, 
 analyzing the images for patterns, testing and fine tuning OCR engines, and exploring other extraction idea/methods
 
-# Team
+### Team
 **ZeroInfinity** 
-* Mira Daya  
+* Mira Daya: <mmdaya@ucdavis.edu>
 * Stanislaw Saganowski: <stanislaw.saganowski@pwr.edu.pl>
 * Scott Taber: <sitaber@ucdavis.edu> | <https://github.com/sitaber/UC-Davis-DSI-DataFest-2018>
 * Kevin Benelli:  <kbenelli@ucdavis.edu> | <https://github.com/Kevin-Benelli/wine-recognition-ocr>
 
+**Team Approach**
+* Categorize images and running them through [Tesseract](https://en.wikipedia.org/wiki/Tesseract_(software)) to create a benchmark of Tesseract's performance on default settings  
+* Train Tesseract with a small sample of fonts from the images and compare to benchmark to see if there is an improvement
+* Parsing Tesseract results with regular expression to extract targed information
 
 
 
