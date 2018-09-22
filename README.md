@@ -16,7 +16,7 @@ The UC Davis Library has over 200 scanned Sherry Lehmann catalogs spanning multi
 library collection totals to over 4000 pages, and is part of an ongoing Data Science project at the [UC Davis Libray](https://www.library.ucdavis.edu/).
 
 The layout, fonts and coloring of the catalog pages varies, sometime widely, between catalogs and even within catalogs. 
-[Some examples can be see here](https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/wiki/Example-Images)
+[Some examples can be see here](https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/wiki/Example-Images).
 
 This introduces an extra layer to the challenge, since a solution that works for a sub-set of pages that are similar 
 will not be readily applicable to the whole corpus of catalog images.
@@ -28,6 +28,11 @@ process and support various steps in the pipeline of data extraction. This inclu
 analyzing the images for patterns, testing and fine tuning OCR engines, and exploring other extraction idea/methods
 
 # Team
+**ZeroInfinity** 
+* Mira Daya  
+* Stanislaw Saganowski: <stanislaw.saganowski@pwr.edu.pl>
+* Scott Taber: <sitaber@ucdavis.edu> | <https://github.com/sitaber/UC-Davis-DSI-DataFest-2018>
+* Kevin Benelli:  <kbenelli@ucdavis.edu> | <https://github.com/Kevin-Benelli/wine-recognition-ocr>
 
 
 
@@ -35,5 +40,5 @@ analyzing the images for patterns, testing and fine tuning OCR engines, and expl
 
 # Approach 
 
-# Hpw it works
+# How it works
 # Prerequisites
