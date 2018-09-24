@@ -108,7 +108,7 @@ This demo utilizes elements of [ocrd-train](https://github.com/OCR-D/ocrd-train)
 To use this demo, download this repositoy with this link https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/archive/master.zip.
 
 
-This demo is self contained, and Makefile should be run from the directory in which it is contained.
+This demo is self contained, and Makefile should be run from the directory in which it is contained. The .tif's and .txt's used as truth are contained in `/ocrd-train-mod/data/train` and are the files used to train Tesseract during DataFest
 
 First, unzip `langadata-master.zip` that was downloaded in part `5.` of Prerequisites to `ocrd-train-mod`
 
