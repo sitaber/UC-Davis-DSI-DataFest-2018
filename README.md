@@ -7,6 +7,7 @@
 * [Why Fine-Tune Tesseract?](#why-fine-tune-tesseract)
 * [Using this Package](#using-this-package)
   * [Prerequistes](#prerequistes)
+  * [Running the Demo](#running-the-demo)
 
 
 ## Introduction
@@ -77,7 +78,7 @@ The fine-tuning was done on a computer running Xubuntu 18.04 LTS, and the proced
 
 1. A computer or virtual machine running Xubuntu 18.04 LTS. An image for this OS can bere found at https://xubuntu.org/download
 
-2. The [Tesseract Open Source OCR Engine](https://github.com/tesseract-ocr/tesseract).
+2. The [Tesseract Open Source OCR Engine](https://github.com/tesseract-ocr/tesseract) version 4.0.
 This can be installed by running
 ```
 sudo apt install tesseract-ocr
@@ -93,7 +94,45 @@ sudo apt-get install libcairo2-dev
 ```
 4. The python library pillow to use `generate_line_box.py`
 ```
-sudo pip install Pillow
+pip install Pillow
 ```
 
-#### 
+#### Running the Demo
+
+This demo utlizies elements of [ocrd-train](https://github.com/OCR-D/ocrd-train). `Makefile` was modifed to suit the needs of finetuning Tesseract, and the primary part of ocrd-train used was the python script `generate_line_box.py`, which is called from MakeFile. This python script creates the nessecary `.box` files from `.tif` and `.gt.txt` which are located in data/train.
+
+
+To use this demo, download this repositoy with this link https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/archive/master.zip.
+
+
+This demo is self contained, and Makefile should be run from the directory in which it is contained.
+
+Open Termianl and navigate to *directory_name*
+Execute the following command
+```
+make training MODEL_NAME=foo CONTIUNE_FROM=eng_best
+```
+
+The finetuning process should now be running. You should see something similar to the image below
+*insert training image*
+
+The number of iteration is set to 300. Simply let the process complete, and copy the resulting foo.traineddata to the tessdata folder where tesseract-ocr files are located. For example `/usr/share/tesseract-ocr/4.00/tessdata/`. This location my vary depending on your system and how you installed Tesseract. If following this guide, and using Xubuntu installed form scratch, this will be the correct directory.
+
+To copy foo.traineddata, execute the following in the directoy that conatins it
+```
+sudo cp foo.trianeddata /usr/share/tesseract-ocr/4.00/tessdata/
+```
+
+
+With the new trained/finetuned .traineddata in the tessdata directory, run
+```
+tessearct test.img test_out -l foo
+```
+TO generate text with the new trained model
+
+
+
+
+
+
+
