@@ -6,7 +6,7 @@
   * [Team](#team)
 * [Why Fine-Tune Tesseract?](#why-fine-tune-tesseract)
 * [Using this Package](#using-this-package)
-  * [Prerequistes](#prerequistes)
+  * [Prerequisites](#prerequisites)
   * [Running the Demo](#running-the-demo)
 
 
@@ -38,9 +38,9 @@ will not be readily applicable to the whole corpus of catalog images.
 
 **Team Approach**:
 The team attacked this problem from three angles. 
-1. Trying methods of image pre-processing using python
-2. Improving character recongnition of [Tesseract](https://github.com/tesseract-ocr/tesseract) via fine tuning
-3. Parsing the resulting extracted text file to retrive targeted information
+1. Trying methods of image preprocessing using python
+2. Improving character recognition of [Tesseract](https://github.com/tesseract-ocr/tesseract) via fine tuning
+3. Parsing the resulting extracted text file to retrieve targeted information
 
 **This Repository**
 
@@ -50,16 +50,16 @@ A self-contained package that demonstrates the teams fine-tuning of Tesseract.
 A conceptual approach to extracting data from the images is as follows
 
 ```
-data collection => pre-processing => character recognition => formatting into structured data
+data collection => preprocessing => character recognition => formatting into structured data
 ```
 
 The data collection was already done for this challenge, so the problem reduces to
 
 ```
- pre-processing => character recognition => formatting into structured data
+ preprocessing => character recognition => formatting into structured data
 ```
 
-Pre-processing can greatly enhace Tesseracts ability to recognize text from the images, but due to the variety of fonts and layouts of the catalogs, the "out of the box" languages for Tesseract fail to identify some characters and many digits accurately. This inhibits the ability to create structed data and is why fine-tuning was an angle of attack chosen.
+Preprocessing can greatly enhance Tesseract’s ability to recognize text from the images, but due to the variety of fonts and layouts of the catalogs, the "out of the box" languages for Tesseract fail to identify some characters and many digits accurately. This inhibits the ability to create structured data and is why fine-tuning was an angle of attack chosen.
 
 ### Some Results
 
@@ -67,16 +67,16 @@ To illustrate to effectiveness of training Tesseract to recognize the text in th
 
 ![](images/results/Results1.png)
 
-The training was done with a small set of 10 images. The reuslts are promising for such a small training set. The recognition of the digits is improved and the sequences of ``` ...``` also have improved recognition.
+The training was done with a small set of 10 images. The results are promising for such a small training set. The recognition of the digits is improved and the sequences of ``` ...``` also have improved recognition.
 
 
 ## Using this Package
 
-The fine-tuning was done on a computer running Xubuntu 18.04 LTS, and the procedure outlined is only valid for this operating-system. It can work on others, but is only guranteed for Xubuntu 18.04 LTS.
+The fine-tuning was done on a computer running Xubuntu 18.04 LTS, and the procedure outlined is only valid for this operating-system. It can work on others, but is only guaranteed for Xubuntu 18.04 LTS.
 
-#### Prerequistes
+#### Prerequisites
 
-1. A computer or virtual machine running Xubuntu 18.04 LTS. An image for this OS can bere found at https://xubuntu.org/download
+1. A computer or virtual machine running Xubuntu 18.04 LTS. An image for this OS can be found at https://xubuntu.org/download
 
 2. The [Tesseract Open Source OCR Engine](https://github.com/tesseract-ocr/tesseract) version 4.0.
 This can be installed by running
@@ -96,10 +96,11 @@ sudo apt-get install libcairo2-dev
 ```
 pip install Pillow
 ```
+5. langdata-master from (https://github.com/tesseract-ocr/langdata)
 
 #### Running the Demo
 
-This demo utlizies elements of [ocrd-train](https://github.com/OCR-D/ocrd-train). `Makefile` was modifed to suit the needs of finetuning Tesseract, and the primary part of ocrd-train used was the python script `generate_line_box.py`, which is called from MakeFile. This python script creates the nessecary `.box` files from `.tif` and `.gt.txt` which are located in data/train.
+This demo utilizes elements of [ocrd-train](https://github.com/OCR-D/ocrd-train). `Makefile` was modified to suit the needs of fine-tuning Tesseract, and the primary part of ocrd-train used was the python script `generate_line_box.py`, which is called from MakeFile. This python script creates the necessary `.box` files from `.tif` and `.gt.txt` which are located in data/train.
 
 
 To use this demo, download this repositoy with this link https://github.com/sitaber/UC-Davis-DSI-DataFest-2018/archive/master.zip.
@@ -107,31 +108,34 @@ To use this demo, download this repositoy with this link https://github.com/sita
 
 This demo is self contained, and Makefile should be run from the directory in which it is contained.
 
-Open Terminal and navigate to *ocrd-train-mod*
+First, unzip `langadata-master.zip` that was downloaded in part `5.` of Prerequisites to `ocrd-train-mod`
+
+Open Terminal and navigate to the `ocrd-train-mod` directory
 
 Execute the following command
 ```
-make training MODEL_NAME=foo CONTIUNE_FROM=eng_best
+make training MODEL_NAME=test CONTINUE_FROM=eng_best
 ```
+NOTE: you may use any name after `MODEL_NAME=` 
 
-The finetuning process should now be running. You should see something similar to the image below
+The fine-tuning process should now be running. You should see something similar to the image below
 *insert training image*
 
-The number of iteration is set to 300. Simply let the process complete, and copy the resulting foo.traineddata to the tessdata folder where tesseract-ocr files are located. For example `/usr/share/tesseract-ocr/4.00/tessdata/`. This location my vary depending on your system and how you installed Tesseract. If following this guide, and using Xubuntu installed form scratch, this will be the correct directory.
+The number of iterations is set to 300. Simply let the process complete, and copy the resulting model_name.traineddata to the tessdata folder where tesseract-ocr files are located. For example `/usr/share/tesseract-ocr/4.00/tessdata/`. 
 
-To copy foo.traineddata, execute the following in the directoy that conatins it
+This location may vary depending on your system and how you installed Tesseract. If following this guide, and using Xubuntu installed form scratch, this will be the correct directory.
+
+To use the newly trained model, execute the following in the directory that contains it to copy it to the main tessdata where Tesseract looks for languages to use
 ```
-sudo cp foo.trianeddata /usr/share/tesseract-ocr/4.00/tessdata/
+sudo cp model_name.trianeddata /usr/share/tesseract-ocr/4.00/tessdata/
 ```
+where `model_name` is the name used when invoking `make`
 
-
-With the new trained/finetuned .traineddata in the tessdata directory, run
+With the new trained/finetuned `.traineddata` in the `tessdata` directory, run
 ```
-tessearct test.img test_out -l foo
+tessearct test.img test_out -l model_name
 ```
-TO generate text with the new trained model
-
-
+To generate text with the new trained model. Where again, `model_name` is the name used when invoking `make`
 
 
 
