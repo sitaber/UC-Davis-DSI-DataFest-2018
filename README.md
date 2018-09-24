@@ -143,18 +143,24 @@ Where again, `model_name` is the name used when invoking `make`, `test.jpg` is t
 
 #### Testing the New Model
 
-To make comparisons, run Tesseract on one or all of the image located in the `images` folder of the repository using, for example
+To make comparisons, run Tesseract on one or all of the image located in the `images` folder of the repository using. You should invoke tesseract from the `images` folder, using for example
 ```
 tessearct UCD_Lehmann_0006.jpg 0006_out 
 ```
 This will generate text using the "shipped" Tesseract language eng.traineddata
 
-Then run
+Then run the following to use the newly fine-tuned/trained language.
 ```
 tessearct UCD_Lehmann_0006.jpg 0006_out_trained -l model_name
 ```
 
-To use the newly fine-tuned/trained language.
+To compare the generated text files
+```
+diff 0006_out.txt 0006_out_trained > diff.txt
+```
+If `> diff.txt` is not used in the above command, the differences will be output to the terminal
+
+The resulting differences may not be overly impressive, but promising enough to warrant further training on the catalog images to improve character recognition.
 
 ## Further Information
 
