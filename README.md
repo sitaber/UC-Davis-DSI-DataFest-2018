@@ -120,8 +120,10 @@ make training MODEL_NAME=test CONTINUE_FROM=eng_best
 ```
 NOTE: you may use any name after `MODEL_NAME=` 
 
-The fine-tuning process should now be running. You should see something similar to the image below
-*insert training image*
+The fine-tuning process should now be running. You should eventually see something similar to the image below
+![](/images/training.png)
+
+Which mean Tesseract is now being trained.
 
 The number of iterations is set to 300. Simply let the process complete.
 
