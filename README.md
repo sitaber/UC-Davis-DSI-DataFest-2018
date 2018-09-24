@@ -107,7 +107,8 @@ To use this demo, download this repositoy with this link https://github.com/sita
 
 This demo is self contained, and Makefile should be run from the directory in which it is contained.
 
-Open Termianl and navigate to *directory_name*
+Open Terminal and navigate to *ocrd-train-mod*
+
 Execute the following command
 ```
 make training MODEL_NAME=foo CONTIUNE_FROM=eng_best
