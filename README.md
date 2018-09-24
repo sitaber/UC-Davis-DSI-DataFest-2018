@@ -166,7 +166,7 @@ The resulting differences may not be overly impressive, but promising enough to 
 
 ## Further Information
 
-To learn more about training Tesseract 4.00, see the main Tesseract wiki https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00#creating-training-data
+To learn more about training Tesseract 4.00, see the main Tesseract wiki https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00
 
 
 Or check out the wiki on this repository **NOTE THIS WIKI IS UNDER CONSTRUCTION**
