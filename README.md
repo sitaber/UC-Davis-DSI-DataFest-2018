@@ -8,6 +8,8 @@
 * [Using this Package](#using-this-package)
   * [Prerequisites](#prerequisites)
   * [Running the Demo](#running-the-demo)
+  * [Testing the New Model](#testing-the-new-model)
+* [Further Information](#further-information)
 
 
 ## Introduction
@@ -67,7 +69,7 @@ To illustrate to effectiveness of training Tesseract to recognize the text in th
 
 ![](images/results/Results1.png)
 
-The training was done with a small set of 10 images. The results are promising for such a small training set. The recognition of the digits is improved and the sequences of ``` ...``` also have improved recognition.
+The training was done with a small set of 11 images. The results are promising for such a small training set. The recognition of the digits is improved and the sequences of ``` ...``` also have improved recognition.
 
 
 ## Using this Package
@@ -121,23 +123,42 @@ NOTE: you may use any name after `MODEL_NAME=`
 The fine-tuning process should now be running. You should see something similar to the image below
 *insert training image*
 
-The number of iterations is set to 300. Simply let the process complete, and copy the resulting model_name.traineddata to the tessdata folder where tesseract-ocr files are located. For example `/usr/share/tesseract-ocr/4.00/tessdata/`. 
+The number of iterations is set to 300. Simply let the process complete.
+
+To use the newly trained model, it must be copied to the main tessdata folder. For example `/usr/share/tesseract-ocr/4.00/tessdata/`. 
 
 This location may vary depending on your system and how you installed Tesseract. If following this guide, and using Xubuntu installed form scratch, this will be the correct directory.
 
-To use the newly trained model, execute the following in the directory that contains it to copy it to the main tessdata where Tesseract looks for languages to use
+To copy the new `.traineddata` use:
 ```
 sudo cp model_name.trianeddata /usr/share/tesseract-ocr/4.00/tessdata/
 ```
 where `model_name` is the name used when invoking `make`
 
-With the new trained/finetuned `.traineddata` in the `tessdata` directory, run
+To generate text with the new trained model run
 ```
-tessearct test.img test_out -l model_name
+tessearct test.jpg test_out -l model_name
 ```
-To generate text with the new trained model. Where again, `model_name` is the name used when invoking `make`
+Where again, `model_name` is the name used when invoking `make`, `test.jpg` is the image file to run Tesseract on, and `test_out` is the name of the output file (it will be appended with .txt, and any name maybe used i.i not restricted to `test_out`)
+
+#### Testing the New Model
+
+To make comparisons, run Tesseract on one or all of the image located in the `images` folder of the repository using, for example
+```
+tessearct UCD_Lehmann_0006.jpg 0006_out 
+```
+This will generate text using the "shipped" Tesseract language eng.traineddata
+
+Then run
+```
+tessearct UCD_Lehmann_0006.jpg 0006_out_trained -l model_name
+```
+
+To use the newly fine-tuned/trained language.
+
+## Further Information
+
+To learn more about training Tesseract 4.00, see the main Tesseract wiki https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00#creating-training-data
 
 
-
-
-
+Or check out the wiki on this repository **NOTE THIS WIKI IS UNDER CONSTRUCTION**
