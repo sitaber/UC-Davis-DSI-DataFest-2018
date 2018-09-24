@@ -5,7 +5,7 @@
   * [Background](#background)
   * [Team](#team)
 * [Why Fine-Tune Tesseract?](#why-fine-tune-tesseract)
-* [Using this Package](#using-this-package)
+* [Using this Demo](#using-this-demo)
   * [Prerequisites](#prerequisites)
   * [Running the Demo](#running-the-demo)
   * [Testing the New Model](#testing-the-new-model)
@@ -72,7 +72,7 @@ To illustrate to effectiveness of training Tesseract to recognize the text in th
 The training was done with a small set of 11 images. The results are promising for such a small training set. The recognition of the digits is improved and the sequences of ``` ...``` also have improved recognition.
 
 
-## Using this Package
+## Using this Demo
 
 The fine-tuning was done on a computer running Xubuntu 18.04 LTS, and the procedure outlined is only valid for this operating-system. It can work on others, but is only guaranteed for Xubuntu 18.04 LTS.
 
