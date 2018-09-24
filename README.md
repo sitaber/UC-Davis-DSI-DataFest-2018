@@ -129,7 +129,7 @@ To use the newly trained model, it must be copied to the main tessdata folder. F
 
 This location may vary depending on your system and how you installed Tesseract. If following this guide, and using Xubuntu installed form scratch, this will be the correct directory.
 
-To copy the new `.traineddata` use:
+To copy the new `.traineddata` navigate to `ocrd-train-mod/tessdata/` open Terminal and run
 ```
 sudo cp model_name.trianeddata /usr/share/tesseract-ocr/4.00/tessdata/
 ```
