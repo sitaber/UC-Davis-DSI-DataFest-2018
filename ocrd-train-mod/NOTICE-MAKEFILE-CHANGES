@@ -1,0 +1,63 @@
+﻿Makefile from https://github.com/OCR-D/ocrd-train has been modifed
+
+Makefile.bak is original Makefile 
+Makefile is modified version
+
+==Modified version== 
+
+Removed the following lines of code
+
+# Build leptonica
+leptonica: leptonica.built
+
+leptonica.built: leptonica-$(LEPTONICA_VERSION)
+	cd $< ; \
+		./configure --prefix=$(LOCAL) && \
+		make -j$(CORES) && \
+		make install && \
+		date > "$@"
+
+leptonica-$(LEPTONICA_VERSION): leptonica-$(LEPTONICA_VERSION).tar.gz
+	tar xf "$<"
+
+leptonica-$(LEPTONICA_VERSION).tar.gz:
+	wget 'http://www.leptonica.org/source/$@'
+
+# Build tesseract
+tesseract: tesseract.built tesseract-langs
+
+tesseract.built: tesseract-$(TESSERACT_VERSION)
+	cd $< && \
+		sh autogen.sh && \
+		PKG_CONFIG_PATH="$(LOCAL)/lib/pkgconfig" \
+		LEPTONICA_CFLAGS="-I$(LOCAL)/include/leptonica" \
+			./configure --prefix=$(LOCAL) && \
+		LDFLAGS="-L$(LOCAL)/lib"\
+			make -j$(CORES) && \
+		make install && \
+		make -j$(CORES) training-install && \
+		date > "$@"
+
+tesseract-$(TESSERACT_VERSION):
+	wget https://github.com/tesseract-ocr/tesseract/archive/$(TESSERACT_VERSION).zip
+	unzip $(TESSERACT_VERSION).zip
+
+# Download tesseract-langs
+tesseract-langs: $(TESSDATA)/eng.traineddata
+
+# Download langdata
+langdata: $(LANGDATA)
+
+$(LANGDATA):
+	wget 'https://github.com/tesseract-ocr/langdata/archive/$(LANGDATA_VERSION).zip'
+	unzip $(LANGDATA_VERSION).zip
+
+$(TESSDATA)/eng.traineddata:
+	cd $(TESSDATA) && wget https://github.com/tesseract-ocr/tessdata$(TESSDATA_REPO)/raw/master/$(notdir $@)
+
+================================
+
+Changed arguments to match directory structure as well as variables
+
+Changed arguments removing unneeded options to lstmtriaing
+
