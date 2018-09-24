@@ -4,8 +4,9 @@
 * [Introduction](#introduction)
   * [Background](#background)
   * [Team](#team)
-* [Why Train Tesseract?](#why-train-tesseract)
-* [How To Train](#how-to-train)
+* [Why Fine-Tune Tesseract?](#why-fine-tune-tesseract)
+* [Using this Package](#using-this-package)
+  * [Prerequistes](#prerequistes)
 
 
 ## Introduction
@@ -25,8 +26,7 @@ The layout, fonts and coloring of the catalog pages varies, sometime widely, bet
 This introduces an extra layer to the challenge, since a solution that works for a sub-set of pages that are similar 
 will not be readily applicable to the whole corpus of catalog images.
 
-The challenge was open-ended, and presented an opportunity for people of all skill levels to gain valuable experience with a data 
-science project and to learn about [optical character recognition (OCR)](https://en.wikipedia.org/wiki/Optical_character_recognition). Though the correct extraction of the price information was the primary goal, there were many subtasks that could be tackled to streamline the process and support various steps in the pipeline of data extraction. This included, but was not limited to, creating truth-tables, analyzing the images for patterns, testing and fine tuning OCR engines, and exploring other extraction idea/methods
+
 
 #### Team
 **ZeroInfinity** 
@@ -35,16 +35,17 @@ science project and to learn about [optical character recognition (OCR)](https:/
 * Scott Taber: <sitaber@ucdavis.edu> | <https://github.com/sitaber/UC-Davis-DSI-DataFest-2018>
 * Kevin Benelli:  <kbenelli@ucdavis.edu> | <https://github.com/Kevin-Benelli/wine-recognition-ocr>
 
-**Team Approach**
-* Categorize images and running them through [Tesseract](https://en.wikipedia.org/wiki/Tesseract_(software)) to create a benchmark of Tesseract's performance on default settings  
-* Train Tesseract with a small sample of fonts from the images and compare to benchmark to see if there is an improvement
-* Parsing Tesseract results with regular expression to extract targed information
+**Team Approach**:
+The team attacked this problem from three angles. 
+1. Trying methods of image pre-processing using python
+2. Improving character recongnition of [Tesseract](https://github.com/tesseract-ocr/tesseract) via fine tuning
+3. Parsing the resulting extracted text file to retrive targeted information
 
 **This Repository**
 
-Outlines the process of training Tesseract. Includes why this method was chosen, how it was accomplished, the results and issues faced in the attempt to train Tesseract.
+A self-contained package that demonstrates the teams fine-tuning of Tesseract.
 
-## Why Train Tesseract?
+## Why Fine-Tune Tesseract?
 A conceptual approach to extracting data from the images is as follows
 
 ```
@@ -57,7 +58,7 @@ The data collection was already done for this challenge, so the problem reduces 
  pre-processing => character recognition => formatting into structured data
 ```
 
-Pre-processing can greatly enhace Tesseracts ability to recognize text from the images, but due to the variety of fonts and layouts of the catalogs, the "out of the box" languages for Tesseract fail to identify many alpha characters and digits accuratley. This inhibits the ability to create structed data and is why this approach was chossen.
+Pre-processing can greatly enhace Tesseracts ability to recognize text from the images, but due to the variety of fonts and layouts of the catalogs, the "out of the box" languages for Tesseract fail to identify some characters and many digits accurately. This inhibits the ability to create structed data and is why fine-tuning was an angle of attack chosen.
 
 ### Some Results
 
@@ -68,6 +69,31 @@ To illustrate to effectiveness of training Tesseract to recognize the text in th
 The training was done with a small set of 10 images. The reuslts are promising for such a small training set. The recognition of the digits is improved and the sequences of ``` ...``` also have improved recognition.
 
 
-## How To Train
+## Using this Package
 
-**(UNDER CONSTRUCTION)** current content as of September 22,2018. More to come.... 
+The fine-tuning was done on a computer running Xubuntu 18.04 LTS, and the procedure outlined is only valid for this operating-system. It can work on others, but is only guranteed for Xubuntu 18.04 LTS.
+
+#### Prerequistes
+
+1. A computer or virtual machine running Xubuntu 18.04 LTS. An image for this OS can bere found at https://xubuntu.org/download
+
+2. The [Tesseract Open Source OCR Engine](https://github.com/tesseract-ocr/tesseract).
+This can be installed by running
+```
+sudo apt install tesseract-ocr
+sudo apt install libtesseract-dev
+```
+For further details please see the [Tesseract wiki](https://github.com/tesseract-ocr/tesseract/wiki)
+
+3. Additional Libraries. 
+```
+sudo apt-get install libicu-dev
+sudo apt-get install libpango1.0-dev
+sudo apt-get install libcairo2-dev
+```
+4. The python library pillow to use `generate_line_box.py`
+```
+sudo pip install Pillow
+```
+
+#### 
